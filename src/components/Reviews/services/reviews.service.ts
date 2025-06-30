@@ -7,7 +7,7 @@ const API_URL = `${import.meta.env.PUBLIC_API_URL}`;
 
 export async function getReviews(params: ReviewQueryParams = {}): Promise<ReviewsResponse> {
     try {
-        const response = await axios.get<ReviewsResponse>(API_URL);
+        const response = await axios.get<ReviewsResponse>(API_URL, { params });
 
         if (response.data.status === 'success') {
             return response.data;
@@ -19,3 +19,5 @@ export async function getReviews(params: ReviewQueryParams = {}): Promise<Review
         throw error;
     }
 }
+
+
