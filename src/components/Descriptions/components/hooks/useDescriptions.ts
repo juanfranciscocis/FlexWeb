@@ -10,6 +10,7 @@ export interface ListingInfo {
 }
 
 export interface OperativeInfo{
+    id: number;
     about: string;
     amenities: string[];
     policies: {
@@ -42,6 +43,7 @@ useEffect(() => {
                     beds: listing.listings.beds,
                 }
                 const operativeInfo:OperativeInfo = {
+                    id: listing.listings.id,
                     about: listing.listings.about,
                     amenities: listing.listings.amenities || [],
                     policies: {

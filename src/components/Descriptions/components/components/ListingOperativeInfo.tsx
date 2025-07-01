@@ -7,6 +7,7 @@ import {GiCookingPot} from "react-icons/gi";
 import {BiSolidWasher} from "react-icons/bi";
 import {FaShield} from "react-icons/fa6";
 import BookingWidget from "./BookingWidget.tsx";
+import ListingReviews from "./ShowReviewsForListing.tsx";
 
 const ListingOperativeInfo = ({operativeInfo}: { operativeInfo: OperativeInfo }) => {
 
@@ -135,11 +136,11 @@ const ListingOperativeInfo = ({operativeInfo}: { operativeInfo: OperativeInfo })
                                     ))}
                                 </div>
                             </Card>
-
-
                         </div>
                     </div>
                 </Card>
+
+                <ListingReviews listingId={operativeInfo.id}/>
 
             </div>
             <div className={`flex flex-col items-center justify-start  min-w-1/4 `}>
