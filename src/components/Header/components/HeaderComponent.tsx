@@ -2,6 +2,7 @@ import React from 'react';
 
 const HeaderComponent: React.FC = () => {
 
+
     return (
             <nav className="  sticky top-0 z-40 bg-flex">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -12,7 +13,7 @@ const HeaderComponent: React.FC = () => {
                             >
                             <img
                                 src={`https://lsmvmmgkpbyqhthzdexc.supabase.co/storage/v1/object/public/website/Uploads/Green_V3%20Symbol%20&%20Wordmark%20(1).png`}
-                                className={`w-32`}
+                                className={`w-38`}
                             />
                             </a>
                         </div>

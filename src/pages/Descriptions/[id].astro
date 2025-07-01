@@ -4,6 +4,7 @@ import Header from "../../components/Header/Header.astro";
 import { getReviews } from "../../components/Reviews/services/reviews.service.ts";
 import {getURLs} from "../../components/services/url.service";
 import ListingDescriptions from "../../components/Descriptions/ListingDescriptions.astro";
+import Footer from "../../components/Footer/Footer.astro";
 
 // This function is required for dynamic routes in static mode
 export async function getStaticPaths() {
@@ -23,4 +24,5 @@ const { id } = Astro.params;
 <Layout>
 	<Header/>
 	<ListingDescriptions id={id} />
+	<Footer/>
 </Layout>

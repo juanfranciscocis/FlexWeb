@@ -14,4 +14,14 @@ export interface Listing {
     about: string;
     listingName: string;
     price: number;
+    amenities: string[];
+    policies: {
+        checkIn: string;
+        checkOut: string;
+        houseRules: string[];
+        cancellationPolicy: {
+            title: string;
+            description: string;
+        }[];
+    };
 }

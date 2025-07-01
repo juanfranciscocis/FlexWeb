@@ -5,7 +5,6 @@ const ImageHero: React.FC<{ images: string[] }> = ({ images = [] }) => {
 
     return (
 
-        <div className="pt-10 pb-10 lg:pl-32 lg:pr-32  md:pl-32 md:pr-32 sm:pl-10 sm:pr-10 xs:pl-10 xs:pr-10 ">
             <div className="grid grid-cols-3 grid-rows-2 gap-2">
                 <div className="row-span-2">
                     <img src={images[0]} alt="Hero" className="w-full h-full  object-cover rounded-lg"/>
@@ -23,7 +22,7 @@ const ImageHero: React.FC<{ images: string[] }> = ({ images = [] }) => {
                     <img src={images[4]} alt="Hero" className="w-full max-h-64 object-cover rounded-lg"/>
                 </div>
             </div>
-        </div>
+
     );
 }
 
