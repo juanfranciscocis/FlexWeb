@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import type { Review, ReviewsResponse } from '../../../interfaces/ReviewsResponse.ts';
 import { getReviews } from "../../../services/reviews.service.ts";
+import {changePublishState} from "../services/changePublishState.service.ts";
 
 export type Filters = {
     property: string;    // listingName
@@ -81,15 +82,16 @@ export const useReviews = () => {
         [reviews]
     );
 
-    const toggleReviewSelection = (reviewId: number) => {
-        const newSelected = new Set(selectedReviews);
+    const toggleReviewSelection = async (reviewId: number) => {
         console.log('selected', reviewId)
-        if (newSelected.has(reviewId)) {
-            newSelected.delete(reviewId);
-        } else {
-            newSelected.add(reviewId);
+        const stateChange = await changePublishState(reviewId)
+        if (stateChange) {
+            setReviews(prevReviews =>
+                prevReviews.map(review =>
+                    review.id === reviewId ? { ...review, status: stateChange.status } : review
+                )
+            );
         }
-        setSelectedReviews(newSelected);
     };
 
     return {

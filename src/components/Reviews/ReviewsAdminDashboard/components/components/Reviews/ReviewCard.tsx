@@ -14,7 +14,12 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
                                                           review,
                                                           isSelected,
                                                           onToggleSelection,
-                                                      }) => (
+                                                      }) => {
+
+
+
+return (
+
     <div className="p-6">
         <div className="flex items-start justify-between">
             <div className="flex-1">
@@ -48,4 +53,5 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
             </button>
         </div>
     </div>
-);
+)
+}

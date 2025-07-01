@@ -32,6 +32,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                                                                 onPropertySelect,
                                                             }) => {
 
+    console.log(filteredReviews)
+
     const {getPropertyStats} = usePropertyStats();
 
     const avgRating = reviews.length > 0
@@ -112,11 +114,11 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                         <h3 className="text-lg font-medium text-gray-900">Recent Reviews</h3>
                     </div>
                     <div className="divide-y">
-                        {filteredReviews.map((review) => (
+                      {filteredReviews.map((review) => (
                             <ReviewCard
                                 key={review.id}
                                 review={review}
-                                isSelected={selectedReviews.has(review.id)}
+                                isSelected={review.status === 'published' ? true : false}
                                 onToggleSelection={onToggleReviewSelection}
                             />
                         ))}
