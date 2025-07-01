@@ -6,6 +6,7 @@ import {MdBlock, MdOutlineAcUnit, MdPets, MdSmokeFree} from "react-icons/md";
 import {GiCookingPot} from "react-icons/gi";
 import {BiSolidWasher} from "react-icons/bi";
 import {FaShield} from "react-icons/fa6";
+import BookingWidget from "./BookingWidget.tsx";
 
 const ListingOperativeInfo = ({operativeInfo}: { operativeInfo: OperativeInfo }) => {
 
@@ -30,9 +31,9 @@ const ListingOperativeInfo = ({operativeInfo}: { operativeInfo: OperativeInfo })
     }
 
     return (
-        <div className="flex flex-row gap-4 min-w-full">
+        <div className="flex flex-row gap-4 min-w-full ">
             <div className={`flex flex-col items-center justify-center min-w-3/4 gap-4 `}>
-                <Card className={`rounded-full w-full`}>
+                <Card className={` w-full rounded-2xl shadow-xl p-6 border border-gray-200`}>
                     <div className="p-4">
                         <h1 className="text-2xl font-semibold mb-2">About</h1>
                         <p className="text-gray-700">
@@ -41,7 +42,7 @@ const ListingOperativeInfo = ({operativeInfo}: { operativeInfo: OperativeInfo })
                     </div>
                 </Card>
 
-                <Card className={'w-full rounded-full'}>
+                <Card className={'w-full rounded-2xl shadow-xl p-6 border border-gray-200'}>
                     <div className="p-4">
                         <h1 className="text-2xl font-semibold mb-2">Amenities</h1>
                         <div className="grid grid-cols-3 gap-2">
@@ -57,13 +58,13 @@ const ListingOperativeInfo = ({operativeInfo}: { operativeInfo: OperativeInfo })
                     </div>
                 </Card>
 
-                <Card className={'w-full rounded-full'}>
+                <Card className={'w-full  rounded-2xl shadow-xl p-6 border border-gray-200'}>
                     <div className="p-4 mb-2">
                         <h1 className="text-2xl font-semibold mb-2">Stay Policies</h1>
                         <div className="flex flex-col gap-6">
 
 
-                            <Card style={{backgroundColor: '#F1F3EE',}}>
+                            <Card style={{backgroundColor: '#F1F3EE',}} className={`rounded-2xl shadow-xl p-6 border border-gray-200`}>
                                 <div className="p-4">
                                     <div className={`flex flex-row items-start justify-start gap-2`}>
                                         <FaClock className="text-2xl text-gray-500"/>
@@ -71,7 +72,7 @@ const ListingOperativeInfo = ({operativeInfo}: { operativeInfo: OperativeInfo })
                                     </div>
                                 </div>
                                 <div className="flex flex-row  min-w-full pr-6 pl-6 pb-6">
-                                    <Card className="rounded-full mr-2 w-1/2">
+                                    <Card className=" mr-2 w-1/2  rounded-2xl shadow-xl p-6 border border-gray-200">
                                         <div className="p-4">
                                             <div className="flex flex-col items-start justify-start gap-2">
                                                 <h1>Check-in time</h1>
@@ -79,7 +80,7 @@ const ListingOperativeInfo = ({operativeInfo}: { operativeInfo: OperativeInfo })
                                             </div>
                                         </div>
                                     </Card>
-                                    <Card className="rounded-full w-1/2">
+                                    <Card className=" w-1/2  rounded-2xl shadow-xl p-6 border border-gray-200">
                                         <div className="p-4">
                                             <div className="flex flex-col items-start justify-start gap-2">
                                                 <h1>Check-out time</h1>
@@ -90,7 +91,7 @@ const ListingOperativeInfo = ({operativeInfo}: { operativeInfo: OperativeInfo })
                                 </div>
                             </Card>
 
-                            <Card style={{backgroundColor: '#F1F3EE',}}>
+                            <Card style={{backgroundColor: '#F1F3EE',}} className={`bg- rounded-2xl shadow-xl p-6 border border-gray-200`}>
                                 <div className="p-4">
                                     <div className={`flex flex-row items-start justify-start gap-2`}>
                                         <FaShield className="text-2xl text-gray-500"/>
@@ -99,7 +100,7 @@ const ListingOperativeInfo = ({operativeInfo}: { operativeInfo: OperativeInfo })
                                 </div>
                                 <div className="flex flex-wrap min-w-full pr-6 pl-6 pb-6 gap-4">
                                     {operativeInfo.policies.houseRules.map((rule, index) => (
-                                        <Card key={index} className="rounded-full w-[calc(50%-0.5rem)]">
+                                        <Card key={index} className="rounded-full w-[calc(50%-0.5rem)]  shadow-xl p-6 border border-gray-200">
                                             <div className="p-4">
                                                 <div className="flex flex-row items-start justify-start gap-2">
                                                     <div className="text-gray-500">
@@ -114,7 +115,7 @@ const ListingOperativeInfo = ({operativeInfo}: { operativeInfo: OperativeInfo })
                             </Card>
 
 
-                            <Card style={{backgroundColor: '#F1F3EE',}}>
+                            <Card style={{backgroundColor: '#F1F3EE',}}  className={` rounded-2xl shadow-xl p-6 border border-gray-200`}>
                                 <div className="p-4">
                                     <div className={`flex flex-row items-start justify-start gap-2`}>
                                         <FaCalendarDay className="text-2xl text-gray-500"/>
@@ -123,7 +124,7 @@ const ListingOperativeInfo = ({operativeInfo}: { operativeInfo: OperativeInfo })
                                 </div>
                                 <div className="flex flex-col  min-w-full pr-6 pl-6 pb-6 gap-4">
                                     {operativeInfo.policies.cancellationPolicy.map((policy, index) => (
-                                        <Card className="rounded-full mr-2 w-full">
+                                        <Card className=" mr-2 w-full bg-white rounded-2xl shadow-xl p-6 border border-gray-200">
                                             <div className="p-4">
                                                 <div className="flex flex-col items-start justify-start gap-2">
                                                     <h1 className="text-gray-900 text-xl font-bold">{policy.title}</h1>
@@ -142,11 +143,7 @@ const ListingOperativeInfo = ({operativeInfo}: { operativeInfo: OperativeInfo })
 
             </div>
             <div className={`flex flex-col items-center justify-start  min-w-1/4 `}>
-                <Card className={`rounded-full w-full`}>
-                    <div className={`p-4`}>
-                        <h1 className="text-2xl font-semibold mb-2">Operative Info</h1>
-                    </div>
-                </Card>
+                <BookingWidget/>
             </div>
         </div>
     );
