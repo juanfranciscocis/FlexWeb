@@ -46,6 +46,9 @@ export const useReviews = () => {
                 }
             }
 
+            params.sortBy = 'rating'; // Default sort by rating
+
+
             const response: ReviewsResponse = await getReviews(params);
 
             if (response.status === 'success') {

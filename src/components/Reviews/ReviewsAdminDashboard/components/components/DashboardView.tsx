@@ -1,11 +1,11 @@
 import React from 'react';
-import { MessageSquare, Star, MapPin, Eye } from 'lucide-react';
-import { StatsCard } from './Stats/StatsCard.tsx';
-import { ReviewFilters } from './Reviews/ReviewFilters.tsx';
-import { PropertyCard } from './Stats/PropertyCard.tsx';
-import { ReviewCard } from './Reviews/ReviewCard.tsx';
-import { usePropertyStats } from '../hooks/usePropertyStats.ts';
-import type { Filters } from '../hooks/useReviews.ts';
+import {MessageSquare, Star, MapPin, Eye} from 'lucide-react';
+import {StatsCard} from './Stats/StatsCard.tsx';
+import {ReviewFilters} from './Reviews/ReviewFilters.tsx';
+import {PropertyCard} from './Stats/PropertyCard.tsx';
+import {ReviewCard} from './Reviews/ReviewCard.tsx';
+import {usePropertyStats} from '../hooks/usePropertyStats.ts';
+import type {Filters} from '../hooks/useReviews.ts';
 import type {Review} from "../../../interfaces/ReviewsResponse.ts";
 
 interface DashboardViewProps {
@@ -31,7 +31,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                                                                 onToggleReviewSelection,
                                                                 onPropertySelect,
                                                             }) => {
-    const { getPropertyStats } = usePropertyStats(reviews);
+
+    const {getPropertyStats} = usePropertyStats();
 
     const avgRating = reviews.length > 0
         ? (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1)
@@ -95,9 +96,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                                     <PropertyCard
                                         key={property}
                                         property={property}
-                                        avgRating={stats.avgRating}
-                                        totalReviews={stats.totalReviews}
-                                        recentReviews={stats.recentReviews}
+                                        avgRating={String(stats.avgRating)} totalReviews={stats.total}
+                                        recentReviews={stats.thisMonth}
                                         onClick={() => onPropertySelect(property)}
                                     />
                                 );

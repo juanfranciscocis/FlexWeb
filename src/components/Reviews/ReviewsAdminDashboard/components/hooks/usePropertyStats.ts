@@ -1,22 +1,38 @@
-import { useMemo } from 'react';
-import type { Review } from '../../../interfaces/ReviewsResponse.ts';
+import {useEffect, useState} from 'react';
+import {getReviewsSumary} from '../../../services/reviews.service';
+import type {SummaryResponse} from '../../../interfaces/SummaryResponse';
+import type { Review } from '../../../interfaces/ReviewsResponse';
 
-export const usePropertyStats = (reviews: Review[]) => {
-    return useMemo(() => {
-        const getPropertyStats = (propertyName: string | null) => {
-            const propertyReviews = reviews.filter((r) => r.listingName === propertyName);
-            const avgRating =
-                propertyReviews.length > 0
-                    ? propertyReviews.reduce((sum, r) => sum + r.rating, 0) / propertyReviews.length
-                    : 0;
-            const totalReviews = propertyReviews.length;
-            const recentReviews = propertyReviews.filter(
-                (r) => new Date(r.submittedAt) > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
-            ).length;
 
-            return { avgRating: avgRating.toFixed(1), totalReviews, recentReviews };
+export const usePropertyStats = () => {
+    const [stats, setStats] = useState<SummaryResponse>({} as SummaryResponse);
+    useEffect(() => {
+        getReviewsSumary()
+            .then((data) => {
+                setStats(data);
+            })
+            .catch(() => setStats({} as SummaryResponse));
+    }, []);
+
+    const getPropertyStats = (propertyName: string | null) => {
+        if (
+            !propertyName ||
+            typeof stats !== 'object' ||
+            !stats.summary ||
+            !Array.isArray(stats.summary)
+        ) {
+            return {avgRating: '0.0', total: 0, thisMonth: 0, unpublished: 0, published: 0};
+        }
+        return stats.summary.find((summary) => summary.listingName === propertyName) || {
+            avgRating: '0.0',
+            total: 0,
+            thisMonth: 0,
+            unpublished: 0,
+            published: 0
         };
+    };
 
-        return { getPropertyStats };
-    }, [reviews]);
+    return {
+        getPropertyStats
+    };
 };

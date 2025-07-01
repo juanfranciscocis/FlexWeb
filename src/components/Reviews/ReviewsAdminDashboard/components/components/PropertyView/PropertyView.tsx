@@ -16,13 +16,17 @@ export const PropertyView: React.FC<PropertyViewProps> = ({
                                                               selectedReviews,
                                                               onBackToDashboard,
                                                           }) => {
-    const { getPropertyStats } = usePropertyStats(reviews);
+    console.log(selectedProperty)
+
+    const { getPropertyStats } = usePropertyStats();
+
     const stats = getPropertyStats(selectedProperty);
 
     const propertyReviews = reviews.filter(
         (review) =>
-            review.listingName === selectedProperty && selectedReviews.has(review.id)
+            review.listingName === selectedProperty
     );
+    console.log(propertyReviews)
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -41,7 +45,7 @@ export const PropertyView: React.FC<PropertyViewProps> = ({
                             <StarRating rating={Number(stats.avgRating) * 2} />
                             <span className="ml-2 text-lg font-medium">{stats.avgRating}/10</span>
                         </div>
-                        <span className="text-gray-600">{stats.totalReviews} reviews</span>
+                        <span className="text-gray-600">{stats.total} reviews</span>
                     </div>
                 </div>
             </div>
