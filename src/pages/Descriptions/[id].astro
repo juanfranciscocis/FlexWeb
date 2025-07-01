@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header/Header.astro";
+import { getReviews } from "../../components/Reviews/services/reviews.service.ts";
+import {getURLs} from "../../components/services/url.service";
+import ListingDescriptions from "../../components/Descriptions/ListingDescriptions.astro";
+
+// This function is required for dynamic routes in static mode
+export async function getStaticPaths() {
+	// Fetch all listing URLs/IDs using your service
+	const urlsResponse = await getURLs();
+
+	return urlsResponse.urls.map((listingId) => ({
+		params: { id: listingId.toString() }
+	}));
+}
+
+// Get the listing ID from the URL params
+const { id } = Astro.params;
+
+---
+
+<Layout>
+	<Header/>
+	<ListingDescriptions id={id} />
+</Layout>

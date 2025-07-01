@@ -1,0 +1,8 @@
+---
+import DescriptionsHero from "./components/DescriptionsHero.tsx";
+const { id } = Astro.props;
+---
+
+<div>
+    <DescriptionsHero client:load id={id} />
+</div>

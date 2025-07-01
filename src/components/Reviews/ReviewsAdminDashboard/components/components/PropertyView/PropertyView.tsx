@@ -29,7 +29,7 @@ export const PropertyView: React.FC<PropertyViewProps> = ({
     console.log(propertyReviews)
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen ">
             {/* Property Header */}
             <div className="bg-white shadow">
                 <div className="max-w-7xl mx-auto px-6 py-8">

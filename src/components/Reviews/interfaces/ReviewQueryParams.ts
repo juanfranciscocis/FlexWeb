@@ -7,4 +7,5 @@ export interface ReviewQueryParams {
     time?: string; // e.g., "2025-06"
     sortBy?: 'rating' | 'submittedAt';
     order?: 'asc' | 'desc';
+    id?: string;
 }
