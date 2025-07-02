@@ -38,7 +38,7 @@ return (
                 </p>
             </div>
             <button
-                onClick={() => onToggleSelection(review.id)}
+                onClick={() => onToggleSelection(review.reviewId)}
                 className={`ml-4 p-2 rounded-full ${
                     isSelected
                         ? 'bg-green-100 text-green-600'

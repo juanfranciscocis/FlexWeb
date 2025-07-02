@@ -16,8 +16,6 @@ const ListingReviews: React.FC<ListingReviewsProps> = ({ listingId }) => {
     const [reviews, setReviews] = useState<Review[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-    const [averageRating, setAverageRating] = useState<number>(0);
-    const [totalReviews, setTotalReviews] = useState<number>(0);
 
     useEffect(() => {
         const fetchReviews = async () => {
@@ -128,7 +126,7 @@ const ListingReviews: React.FC<ListingReviewsProps> = ({ listingId }) => {
                     <div className="p-4">
                         <h2 className="text-xl font-semibold mb-4">What guests are saying</h2>
                         <div className="space-y-6">
-                            {reviews.map((review) => (
+                            {reviews.filter((review)=> review.status === 'published').map((review) => (
                                 <Card key={review.id} className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
                                     <div className="p-4">
                                         {/* Review Header */}

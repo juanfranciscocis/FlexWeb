@@ -88,7 +88,7 @@ export const useReviews = () => {
         if (stateChange) {
             setReviews(prevReviews =>
                 prevReviews.map(review =>
-                    review.id === reviewId ? { ...review, status: stateChange.status } : review
+                    review.reviewId === reviewId ? { ...review, status: stateChange.status } : review
                 )
             );
         }

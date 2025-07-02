@@ -5,6 +5,7 @@ export interface ReviewCategory {
 
 export interface Review {
     id: number;
+    reviewId: number;
     type: 'guest-to-host' | string;
     status: 'published' | string;
     rating: number;

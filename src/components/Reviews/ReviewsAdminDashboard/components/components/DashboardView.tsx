@@ -116,7 +116,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                     <div className="divide-y">
                       {filteredReviews.map((review) => (
                             <ReviewCard
-                                key={review.id}
+                                key={review.reviewId}
                                 review={review}
                                 isSelected={review.status === 'published' ? true : false}
                                 onToggleSelection={onToggleReviewSelection}
