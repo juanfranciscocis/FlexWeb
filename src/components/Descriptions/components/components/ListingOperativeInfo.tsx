@@ -32,7 +32,7 @@ const ListingOperativeInfo = ({operativeInfo}: { operativeInfo: OperativeInfo })
     }
 
     return (
-        <div className="flex flex-row gap-4 min-w-full ">
+        <div className="flex flex-col sm:flex-col  md:flex-col lg:flex-row  gap-4 min-w-full ">
             <div className={`flex flex-col items-center justify-center min-w-3/4 gap-4 `}>
                 <Card className={` w-full rounded-2xl shadow-xl p-6 border border-gray-200`}>
                     <div className="p-4">
