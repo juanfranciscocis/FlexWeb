@@ -2,6 +2,8 @@
 
 FlexWeb is a web application built with [Astro](https://astro.build/) and [React](https://react.dev/) for managing property listings and reviews. It leverages both [Tailwind CSS](https://tailwindcss.com/) and [Material UI (MUI)](https://mui.com/) for flexible, modern, and highly customizable UI development.
 
+**Backend API:** [FlexAPI](https://github.com/juanfranciscocis/FlexAPI)
+
 ## Table of Contents
 - [Getting Started](#getting-started)
 - [Available Scripts](#available-scripts)
