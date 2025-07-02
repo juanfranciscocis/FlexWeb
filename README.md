@@ -1,48 +1,103 @@
-# Astro Starter Kit: Basics
+# FlexWeb
 
-```sh
-npm create astro@latest -- --template basics
+FlexWeb is a web application built with [Astro](https://astro.build/) and [React](https://react.dev/) for managing property listings and reviews. It leverages both [Tailwind CSS](https://tailwindcss.com/) and [Material UI (MUI)](https://mui.com/) for flexible, modern, and highly customizable UI development.
+
+## Table of Contents
+- [Getting Started](#getting-started)
+- [Available Scripts](#available-scripts)
+- [Project Structure](#project-structure)
+- [Libraries Used](#libraries-used)
+- [Pages](#pages)
+- [Why Tailwind with MUI?](#why-tailwind-with-mui)
+- [How Are Requests Made?](#how-are-requests-made)
+
+## Getting Started
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd FlexWeb
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the Project
+To start the development server:
+```bash
+npm run dev
+```
+The app will be available at `http://localhost:4321` by default.
+
+To build for production:
+```bash
+npm run build
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+To preview the production build:
+```bash
+npm run preview
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Available Scripts
+- `npm run dev` — Start the development server
+- `npm run build` — Build the app for production
+- `npm run preview` — Preview the production build
 
-## 🧞 Commands
+## Project Structure
+- `src/` — Source code
+  - `components/` — Reusable React and Astro components
+  - `layouts/` — Layout components
+  - `pages/` — Astro pages (routes)
+  - `assets/` — Static assets (images, SVGs)
+  - `styles/` — Global and component styles
+- `public/` — Public static files
+- `astro.config.mjs` — Astro configuration
+- `tsconfig.json` — TypeScript configuration
 
-All commands are run from the root of the project, from a terminal:
+## Libraries Used
+- [Astro](https://astro.build/) — Static site generator
+- [React](https://react.dev/) — UI library for components
+- [TypeScript](https://www.typescriptlang.org/) — Typed JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) ��� Utility-first CSS framework
+- [Material UI (MUI)](https://mui.com/) — React UI component library
+- [Axios](https://axios-http.com/) — Promise-based HTTP client for API requests
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Pages
+- `/` — Home page
+- `/Descriptions/[id]` — Listing descriptions page (dynamic route)
+- `/ReviewsAdmin` — Reviews admin dashboard
 
-## 👀 Want to learn more?
+## Why Tailwind with MUI?
+Using both Tailwind CSS and MUI combines the best of both worlds:
+- **Tailwind CSS** provides utility-first, low-level styling for rapid prototyping and custom design.
+- **MUI** offers a robust set of pre-built, accessible, and themeable React components.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This hybrid approach allows for:
+- Fast, consistent custom styling with Tailwind utilities.
+- Leveraging MUI's advanced components (like dialogs, data grids, etc.) for complex UI needs.
+- Easy overrides and customizations, making the UI both unique and highly functional.
+
+## How Are Requests Made?
+All HTTP requests to backend APIs are made using [Axios](https://axios-http.com/). Axios is a promise-based HTTP client that makes it easy to send asynchronous requests and handle responses. It is used throughout the project in service files (e.g., `listings.service.ts`, `reviews.service.ts`) to fetch and update data from the server.
+
+Typical usage example:
+```ts
+import axios from 'axios';
+
+axios.get('/api/listings')
+  .then(response => {
+    // handle data
+  })
+  .catch(error => {
+    // handle error
+  });
+```
+
+Axios is chosen for its simplicity, wide adoption, and built-in support for interceptors, request/response transformation, and error handling.
