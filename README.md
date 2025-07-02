@@ -5,6 +5,7 @@ FlexWeb is a web application built with [Astro](https://astro.build/) and [React
 **Backend API:** [FlexAPI](https://github.com/juanfranciscocis/FlexAPI)
 
 ## Table of Contents
+- [Google Reviews](#google-reviews)
 - [Getting Started](#getting-started)
 - [Available Scripts](#available-scripts)
 - [Project Structure](#project-structure)
@@ -12,6 +13,35 @@ FlexWeb is a web application built with [Astro](https://astro.build/) and [React
 - [Pages](#pages)
 - [Why Tailwind with MUI?](#why-tailwind-with-mui)
 - [How Are Requests Made?](#how-are-requests-made)
+
+## Google Reviews
+
+### Why Google Reviews Was Not Integrated
+
+During the planning and development of this project, the possibility of integrating Google Reviews was evaluated as a way to enhance credibility and provide external validation. However, after careful consideration, it became clear that this approach was not feasible or aligned with the core objectives of the platform.
+
+#### No Google Business Profile Available
+
+At the time of development, the company did not have an official Google Business Profile with publicly accessible data. Without this profile, it is not possible to retrieve reviews via the Google Places API or any public review endpoint. This technical limitation alone made integration impractical.
+
+#### Misalignment with Project Goals
+
+Even if a Google Business Profile were available, the integration of Google Reviews would not be the most appropriate solution for the platform’s needs. This application is designed to collect and manage reviews at the property level, not for the company as a whole.
+
+Google Reviews typically reflect feedback about the overall business entity, which may not provide the granularity required for a property management platform where each listing has its own features, quality, and guest experiences.
+
+#### Custom Review System: The Better Fit
+
+Instead of relying on third-party sources like Google, a custom review system was developed to meet the following goals:
+	•	Allow guests to leave reviews tied specifically to individual property listings.
+	•	Enable admins to manage, moderate, and respond to reviews within a centralized dashboard.
+	•	Maintain control over the data structure and review categories (cleanliness, location, value, etc.).
+	•	Provide flexibility for future features like filtering, sorting, and analytics.
+
+This tailored solution ensures the platform remains scalable, maintainable, and fully aligned with business requirements.
+
+
+
 
 ## Getting Started
 
