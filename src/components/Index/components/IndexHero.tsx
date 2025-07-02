@@ -11,7 +11,7 @@ const IndexHero: React.FC = () => {
     const [showCityDropdown, setShowCityDropdown] = useState(false);
     const [dates, setDates] = useState('Dates');
 
-    const cities = ['New York', 'Los Angeles', 'Chicago', 'Miami', 'San Francisco', 'Seattle'];
+    const cities = ['London, UK', 'Paris, France', 'Algiers, Algeria'];
 
     const handleGuestIncrement = () => {
         setGuestCount(prev => prev + 1);
