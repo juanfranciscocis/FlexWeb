@@ -119,21 +119,21 @@ const ListingReviews: React.FC<ListingReviewsProps> = ({ listingId }) => {
     }
 
     return (
-        <div className="flex flex-row gap-4 min-w-full">
-            <div className="flex flex-col items-center justify-center min-w-3/4 gap-4">
+        <div className="flex flex-row gap-4 w-full">
+            <div className="flex flex-col items-center justify-center gap-4 w-full">
                 {/* Individual Reviews */}
                 <Card className="w-full rounded-2xl shadow-xl p-6 border border-gray-200">
                     <div className="p-4">
                         <h2 className="text-xl font-semibold mb-4">What guests are saying</h2>
                         <div className="space-y-6">
-                            {reviews.filter((review)=> review.status === 'published').map((review) => (
-                                <Card key={review.id} className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                            {reviews.filter((review) => review.status === 'published').map((review) => (
+                                <Card key={review.id} className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 w-full">
                                     <div className="p-4">
                                         {/* Review Header */}
                                         <div className="flex items-start justify-between mb-4">
                                             <div className="flex items-center gap-3">
                                                 <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
-                                                        <FaUser className="text-gray-500 text-lg" />
+                                                    <FaUser className="text-gray-500 text-lg" />
                                                 </div>
                                                 <div>
                                                     <h3 className="font-semibold text-gray-900">
